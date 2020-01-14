@@ -40,7 +40,7 @@ const UserCard = props => {
                 return (
                     <a className="followerListItem" href={item.html_url} key={item.login}>
                       <div className="subFollowerListItem">
-                        <img className="friendsListImg" src={item.avatar_url} />
+                        <img className="friendsListImg" src={item.avatar_url} alt="" />
 
                         <p className="friendsListName">{item.login}</p>
                       </div>

@@ -17,13 +17,12 @@ class App extends React.Component{
   state={
     person: [],
     followers: [],
-    searchText: []
+    searchText: ""
   }
   
   //we can use state={} because if we are using arrow functions, constructor() and super() are already built under the hood
 
   componentDidMount(){
-    console.log('Mounted')
     axios.get('https://api.github.com/users/zakmayfield')
       .then(res => {
         console.log('SUCCESS in CDM', res)
@@ -53,12 +52,32 @@ class App extends React.Component{
     }
   }
 
+  handleChange = e => {
+    this.setState({
+      searchText: e.target.value
+    })
+  }
+
+  fetchPerson = e => {
+    e.preventDefault();
+    axios.get(`https://api.github.com/users/${this.state.searchText}`)
+      .then(res => {
+        console.log('Fetch person Success', res)
+        this.setState({
+          person: res.data
+        })
+      })
+      .catch(err => {
+        console.log('Error', err)
+        alert('Please fill out the form before submitting!')
+      })
+  }
+
   render(){
-    console.log('Rendering')
     return(
       <div className="App">
         <h2>Github User Card</h2>
-        <SearchForm />
+        <SearchForm searchText={this.state.searchText} handleChange={this.handleChange} fetchPerson={this.fetchPerson} />
         <UserCard person={this.state.person} followers={this.state.followers} />
       </div>
     )
