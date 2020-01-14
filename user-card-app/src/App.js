@@ -17,7 +17,7 @@ class App extends React.Component{
   state={
     person: [],
     followers: [],
-    searchText: ""
+    searchText: "zakmayfield"
   }
   
   //we can use state={} because if we are using arrow functions, constructor() and super() are already built under the hood
@@ -38,7 +38,7 @@ class App extends React.Component{
 
   componentDidUpdate(prevProps, prevState){
     if(this.state.person !== prevState.person){
-      axios.get('https://api.github.com/users/zakmayfield/followers')
+      axios.get(`https://api.github.com/users/${this.state.searchText}/followers`)
         .then(res => {
           console.log('Success in CDU', res)
           const followers = res.data;
