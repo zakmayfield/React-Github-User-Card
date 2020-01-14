@@ -1,6 +1,5 @@
 import React from 'react';
 import pin from './icons/pin.png'
-import anon from './icons/anon.png';
 
 const UserCard = props => {
   return (
@@ -39,15 +38,13 @@ const UserCard = props => {
             {
               props.followers.map(item => {
                 return (
-                  <p key={item.login}>
-                    <a 
-                      href={item.html_url} 
-                      className="followerListItem" 
-                    >
-                      <img className="anon" src={anon} alt=""/>
-                      {item.login}
+                    <a className="followerListItem" href={item.html_url} key={item.login}>
+                      <div className="subFollowerListItem">
+                        <img className="friendsListImg" src={item.avatar_url} />
+
+                        <p className="friendsListName">{item.login}</p>
+                      </div>
                     </a>
-                  </p>
                 )
               })
             }

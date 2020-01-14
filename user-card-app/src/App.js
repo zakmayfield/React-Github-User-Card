@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import axios from 'axios';
 import UserCard from './components/UserCard'
+import SearchForm from './components/SearchForm'
 
 class App extends React.Component{
   /*
@@ -15,7 +16,8 @@ class App extends React.Component{
   
   state={
     person: [],
-    followers: []
+    followers: [],
+    searchText: []
   }
   
   //we can use state={} because if we are using arrow functions, constructor() and super() are already built under the hood
@@ -56,6 +58,7 @@ class App extends React.Component{
     return(
       <div className="App">
         <h2>Github User Card</h2>
+        <SearchForm />
         <UserCard person={this.state.person} followers={this.state.followers} />
       </div>
     )

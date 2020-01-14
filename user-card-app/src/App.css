@@ -51,7 +51,7 @@ body{
 }
 
 h1, h2, h3, h4{
-  font-size: 2.76rem;
+  font-size: 2.75rem;
 }
 
 p{
@@ -128,6 +128,8 @@ p{
 
   display: flex;
   justify-content: center;
+
+  margin-top: 5vh;
 }
 
 .subFollowerList{
@@ -141,13 +143,20 @@ p{
 .followerListItem{
   text-decoration: none;
   color: black;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
 
+.subFollowerListItem{
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
-.anon{
-  width: 20px;
-  margin-right: 1vw;
+.friendsListImg{
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 2vw;
+}
+
+.friendsListName{
+
 }
